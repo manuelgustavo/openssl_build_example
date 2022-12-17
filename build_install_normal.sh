@@ -56,6 +56,7 @@ install_openssl()
     sudo rm -fr /usr/bin/c_rehash.old
     sudo mv /usr/bin/c_rehash /usr/bin/c_rehash.old
     sudo ln -s "${OPENSSL_ROOT}/bin/c_rehash" /usr/bin/c_rehash
+    sudo rm -fr /etc/ld.so.conf.d/openssl*
     echo "${OPENSSL_ROOT}/lib" | sudo tee /etc/ld.so.conf.d/${OPENSSL_FOLDER}.conf
     sudo ldconfig -v
     sudo rm -fr "${OPENSSL_ROOT}/certs.old"
