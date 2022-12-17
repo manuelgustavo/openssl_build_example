@@ -1,15 +1,5 @@
 #!/bin/bash
 set -x
-set -euo pipefail
-
-openssl_tag="OpenSSL_1_1_1s"
-openssl_folder="openssl-1.1.1s-debug"
-openssl_install="/opt"
-
-OPENSSL_TAG="${openssl_tag}"
-OPENSSL_ROOT="${openssl_install}/${openssl_folder}"
-OPENSSL_FOLDER="${openssl_folder}"
-
 reset_sudo()
 {
 if [ $SUDOCREDCACHED != 0 ] ; then 
@@ -35,7 +25,16 @@ if [ $SUDOCREDCACHED != 0 ] ; then
 fi
 
 trap Ctrl_C SIGINT
-### your stuff here ###
+#####################
+set -euo pipefail
+
+openssl_tag="OpenSSL_1_1_1s"
+openssl_folder="openssl-1.1.1s-debug"
+openssl_install="/opt"
+
+OPENSSL_TAG="${openssl_tag}"
+OPENSSL_ROOT="${openssl_install}/${openssl_folder}"
+OPENSSL_FOLDER="${openssl_folder}"
 
 
 install_openssl()
